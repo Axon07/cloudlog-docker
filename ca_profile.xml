@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<CommunityApplications>
+  <Profile>Automatically updated Docker image for Cloudlog, the web-based amateur radio logging application. The image is built straight from the official magicbug/Cloudlog source and rebuilt whenever a new Cloudlog release is published. This is an unofficial package: please report issues with the image or the Unraid template on this repository's GitHub issues, not to the Cloudlog project.</Profile>
+  <Icon>https://raw.githubusercontent.com/magicbug/Cloudlog/master/CloudLog.png</Icon>
+  <WebPage>https://github.com/Axon07/cloudlog-docker</WebPage>
+</CommunityApplications>
