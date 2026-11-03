@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Cloudlog</Name>
+  <Repository>ghcr.io/axon07/cloudlog:latest</Repository>
+  <Registry>https://github.com/Axon07/cloudlog-docker/pkgs/container/cloudlog</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/Axon07/cloudlog-docker/issues</Support>
+  <Project>https://github.com/magicbug/Cloudlog</Project>
+  <Overview>Cloudlog - web-based amateur radio logging application (PHP/MySQL). Log QSOs from any browser, HF to microwave, CAT control, LoTW/eQSL/QRZ/Club Log integration.&#xD;
+&#xD;
+Image is built automatically from the official magicbug/Cloudlog source whenever a new release is published.&#xD;
+&#xD;
+Requires a separate MySQL or MariaDB container. Create a database and user for Cloudlog, open the WebUI to run the installer, then restart this container once.&#xD;
+&#xD;
+Back up your database before updating.</Overview>
+  <Category>Tools: Network:Web</Category>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/Axon07/cloudlog-docker/main/unraid/cloudlog.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/magicbug/Cloudlog/master/CloudLog.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText>Support the Cloudlog developer</DonateText>
+  <DonateLink>https://github.com/sponsors/magicbug</DonateLink>
+  <Requires>A MySQL or MariaDB database container (e.g. MariaDB from Community Applications).</Requires>
+  <Config Name="WebUI Port" Target="80" Default="8086" Mode="tcp" Description="Port for the Cloudlog web interface." Type="Port" Display="always" Required="true" Mask="false">8086</Config>
+  <Config Name="Config" Target="/var/www/html/application/config" Default="/mnt/user/appdata/CloudLog/config" Mode="rw" Description="Cloudlog config. Your config.php and database.php are kept; everything else is refreshed from the image on each start so upgrades apply." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/CloudLog/config</Config>
+  <Config Name="Uploads" Target="/var/www/html/uploads" Default="/mnt/user/appdata/CloudLog/uploads" Mode="rw" Description="ADIF imports and other uploads." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/CloudLog/uploads</Config>
+  <Config Name="Backup" Target="/var/www/html/backup" Default="/mnt/user/appdata/CloudLog/backup" Mode="rw" Description="Cloudlog backup exports (ADIF/notes)." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/CloudLog/backup</Config>
+  <Config Name="QSL Cards" Target="/var/www/html/assets/qslcard" Default="/mnt/user/appdata/CloudLog/qslcard" Mode="rw" Description="Uploaded QSL card images." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/CloudLog/qslcard</Config>
+  <Config Name="Images" Target="/var/www/html/images" Default="/mnt/user/appdata/CloudLog/images" Mode="rw" Description="eQSL card images and other stored images." Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/CloudLog/images</Config>
+  <Config Name="Base URL" Target="BASE_URL" Default="" Mode="" Description="Optional. Public URL incl. trailing slash (e.g. https://log.example.com/). Written into config.php on each start. Leave blank to manage it yourself." Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Timezone" Target="TZ" Default="Etc/UTC" Mode="" Description="Container timezone (IANA name, e.g. Europe/London)." Type="Variable" Display="advanced" Required="false" Mask="false">Etc/UTC</Config>
+  <Config Name="PUID" Target="PUID" Default="33" Mode="" Description="Owner UID for writable folders (33 = www-data). Leave as 33 unless you know you need otherwise." Type="Variable" Display="advanced" Required="false" Mask="false">33</Config>
+  <Config Name="PGID" Target="PGID" Default="33" Mode="" Description="Owner GID for writable folders (33 = www-data)." Type="Variable" Display="advanced" Required="false" Mask="false">33</Config>
+</Container>
