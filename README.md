@@ -93,6 +93,12 @@ docker build --build-arg CLOUDLOG_REF=master -t cloudlog .
 
 The GitHub Action in `.github/workflows/build.yml` checks upstream every 4 hours and only builds when the release or master commit is new. You can also run it manually from the Actions tab, with **force** ticked to rebuild. It also keeps itself alive, because GitHub pauses scheduled workflows on repos with no activity for 60 days.
 
+## License
+
+The files in this repository (Dockerfile, entrypoint, workflow, Unraid template) are MIT licensed. See [LICENSE](LICENSE).
+
+Cloudlog itself is licensed separately by its authors. See [magicbug/Cloudlog](https://github.com/magicbug/Cloudlog/blob/master/LICENSE).
+
 ## Credits
 
 Cloudlog is developed by magicbug and contributors. This repo only packages it. Consider [supporting Cloudlog](https://github.com/sponsors/magicbug).
